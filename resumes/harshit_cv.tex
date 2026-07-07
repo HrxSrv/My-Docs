@@ -1,0 +1,172 @@
+%-------------------------
+% Resume in LaTeX
+% Based on the popular Jake Gutierrez template
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Harshit Srivastava} \\ \vspace{1pt}
+    \small +91 7754876626 $|$ \href{mailto:harshitsrv2004@gmail.com}{\underline{harshitsrv2004@gmail.com}} $|$
+    \href{https://linkedin.com/in/harshitsrv}{\underline{linkedin.com/in/harshitsrv}} $|$
+    \href{https://github.com/hrxsrv}{\underline{github.com/hrxsrv}}
+\end{center}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: JavaScript, Go, C++} \\
+     \textbf{Frameworks/Tools}{: Node.js, Gin, Next.js, AWS} \\
+     \textbf{DevOps}{: Docker, CI/CD, Git, Microservices}
+    }}
+ \end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Indian Institute of Information Technology Design and Manufacturing Jabalpur}{2022 -- Present}
+      {Bachelor of Technology in Computer Science and Engineering}{CGPA: 8.0/10.0}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Professional Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Engineer Intern}{August 2025 -- Present}
+      {Rimo LLC}{Tokyo, Japan}
+      \resumeItemListStart
+        \resumeItem{Developed and maintained scalable backend APIs in Go and built reusable UI components using Next.js.}
+        \resumeItem{Built a real-time retrieval-augmented suggestion pipeline for live in-meeting question recommendations using a client-side BERT model executed via ONNX Runtime Web with WebGL acceleration.}
+        \resumeItem{Implemented in-app notification infrastructure with scheduled cloud triggers and Redis-backed queue-based event delivery.}
+        \resumeItem{Reduced legacy API latency by introducing pagination and offloading expensive client-side search operations to Elasticsearch-backed server-side querying.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Backend Intern}{May 2025 -- August 2025}
+      {Connexlab}{Remote}
+      \resumeItemListStart
+        \resumeItem{Built a real-time AI interviewer platform using LiveKit Agents SDK with OpenAI-powered speech-to-text and text-to-speech pipelines for interactive voice conversations.}
+        \resumeItem{Developed an independent YOLO-based frame-by-frame cheat detection microservice for interview proctoring with asynchronous AWS SQS-based event processing.}
+        \resumeItem{Designed fault-tolerant distributed worker infrastructure using AWS Fargate Spot workers with dead-letter queues for resilient video analysis and retry handling.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Technical Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{Vithos -- AI Health Data Platform} $|$ \emph{Next.js, Express.js, Supabase, Redis, BullMQ} $|$ \href{https://example.com}{\underline{Live}} $|$ \href{https://github.com/hrxsrv}{\underline{GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{Built a multi-tenant platform converting PDF lab reports into a queryable health dataset.}
+            \resumeItem{Implemented RAG-based chat using pgvector for semantic retrieval over medical history.}
+            \resumeItem{Designed async ingestion pipeline (BullMQ + Redis) with scalable workers for parsing \& embeddings.}
+            \resumeItem{Developed biomarker tracking \& trend analytics with dashboards and health nudges.}
+            \resumeItem{Ensured secure storage \& sharing via Supabase RLS (DB-level tenant isolation).}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{goComp -- Distributed Code Judge Engine} $|$ \emph{Go, Docker, Redis, REST APIs, Concurrent Worker Pools} $|$ \href{https://github.com/hrxsrv}{\underline{GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{Built a distributed online code judge engine in Go with isolated containerized execution environments for secure multi-language code evaluation.}
+            \resumeItem{Designed concurrent worker pipelines and execution queues for scalable submission processing with timeout and resource-limit enforcement.}
+            \resumeItem{Implemented sandboxed runtime orchestration with Docker-based process isolation, stdout/stderr capture, and deterministic test execution.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%-----------AWARDS-----------
+\section{Awards \& Achievements}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{MCM Scholarship Recipient (2022--2023)}{ -- Top 1\% academic performance at IIITDM Jabalpur} \\
+     \textbf{Convolve (4.0)}{ -- All India Rank 2 (10k+ participants)} \\
+     \textbf{Rimo Hack (Tokyo)}{ -- Winner (Rimo teams)} \\
+     \textbf{Competitive Programming}{: Codeforces Specialist (1523), CodeChef 4-Star (1624), 300+ algorithmic problems solved}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
