@@ -1,0 +1,44 @@
+name: Build resumes
+
+# Compiles every resumes/*.tex with pdfLaTeX and force-pushes the PDFs to the
+# `pdfs` branch, which the portfolio reads from. main keeps only the sources.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "resumes/**.tex"
+      - ".github/workflows/build-resumes.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-resumes
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resumes/*.tex
+          work_in_root_file_dir: true
+
+      - name: Publish PDFs to the pdfs branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir out
+          for tex in resumes/*.tex; do cp "${tex%.tex}.pdf" out/; done
+          cd out
+          git init -q -b pdfs
+          git add .
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -qm "Build PDFs from ${GITHUB_SHA::7}"
+          git push -qf "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" pdfs
